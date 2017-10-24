@@ -16,6 +16,8 @@
 		E6D4F8121F9E6CFA00732B8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D4F8111F9E6CFA00732B8F /* main.m */; };
 		E6D4F81C1F9E6CFA00732B8F /* CatsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D4F81B1F9E6CFA00732B8F /* CatsTests.m */; };
 		E6D4F8271F9E6CFA00732B8F /* CatsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D4F8261F9E6CFA00732B8F /* CatsUITests.m */; };
+		E6D4F8361F9E6D9D00732B8F /* myCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D4F8351F9E6D9D00732B8F /* myCollectionViewCell.m */; };
+		E6D4F8391F9E830A00732B8F /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D4F8381F9E830A00732B8F /* Cat.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		E6D4F8221F9E6CFA00732B8F /* CatsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D4F8261F9E6CFA00732B8F /* CatsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CatsUITests.m; sourceTree = "<group>"; };
 		E6D4F8281F9E6CFA00732B8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6D4F8341F9E6D9D00732B8F /* myCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = myCollectionViewCell.h; sourceTree = "<group>"; };
+		E6D4F8351F9E6D9D00732B8F /* myCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myCollectionViewCell.m; sourceTree = "<group>"; };
+		E6D4F8371F9E830A00732B8F /* Cat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cat.h; sourceTree = "<group>"; };
+		E6D4F8381F9E830A00732B8F /* Cat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cat.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +113,11 @@
 				E6D4F8001F9E6CFA00732B8F /* AppDelegate.m */,
 				E6D4F8021F9E6CFA00732B8F /* ViewController.h */,
 				E6D4F8031F9E6CFA00732B8F /* ViewController.m */,
+				E6D4F8371F9E830A00732B8F /* Cat.h */,
+				E6D4F8381F9E830A00732B8F /* Cat.m */,
 				E6D4F8051F9E6CFA00732B8F /* Main.storyboard */,
+				E6D4F8341F9E6D9D00732B8F /* myCollectionViewCell.h */,
+				E6D4F8351F9E6D9D00732B8F /* myCollectionViewCell.m */,
 				E6D4F80B1F9E6CFA00732B8F /* Assets.xcassets */,
 				E6D4F80D1F9E6CFA00732B8F /* LaunchScreen.storyboard */,
 				E6D4F8101F9E6CFA00732B8F /* Info.plist */,
@@ -268,9 +278,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6D4F8391F9E830A00732B8F /* Cat.m in Sources */,
 				E6D4F8041F9E6CFA00732B8F /* ViewController.m in Sources */,
 				E6D4F80A1F9E6CFA00732B8F /* Cats.xcdatamodeld in Sources */,
 				E6D4F8121F9E6CFA00732B8F /* main.m in Sources */,
+				E6D4F8361F9E6D9D00732B8F /* myCollectionViewCell.m in Sources */,
 				E6D4F8011F9E6CFA00732B8F /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
