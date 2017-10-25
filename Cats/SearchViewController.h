@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+@protocol SearchDelegate <NSObject>
+- (void)textDidUpdate:(NSString *)text;
+
+@end
+
 @interface SearchViewController : UIViewController <CLLocationManagerDelegate>
+
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (nonatomic, weak) id <SearchDelegate> delegate;
 
 @end

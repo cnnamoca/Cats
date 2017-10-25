@@ -136,6 +136,7 @@
                             <constraint firstItem="LSL-z4-lqD" firstAttribute="top" secondItem="yaP-Ad-QdF" secondAttribute="top" constant="298" id="OpT-ae-8E6"/>
                             <constraint firstItem="c5M-b3-psX" firstAttribute="top" secondItem="LSL-z4-lqD" secondAttribute="bottom" constant="10" id="WMx-M7-hbC"/>
                             <constraint firstItem="8gH-O0-ctL" firstAttribute="top" secondItem="yaP-Ad-QdF" secondAttribute="top" constant="10" id="aQa-Qx-GzQ"/>
+                            <constraint firstItem="yaP-Ad-QdF" firstAttribute="trailing" secondItem="8gH-O0-ctL" secondAttribute="trailing" constant="307" id="bqu-Sd-i56"/>
                             <constraint firstItem="c5M-b3-psX" firstAttribute="leading" secondItem="Sgd-op-Gm6" secondAttribute="trailing" constant="38" id="oac-mm-h1m"/>
                             <constraint firstItem="yaP-Ad-QdF" firstAttribute="trailing" secondItem="Sgd-op-Gm6" secondAttribute="trailing" constant="164.5" id="qxQ-V5-B2Z"/>
                             <constraint firstItem="8gH-O0-ctL" firstAttribute="leading" secondItem="yaP-Ad-QdF" secondAttribute="leading" constant="20" id="rBC-LP-GfU"/>
@@ -147,7 +148,7 @@
                     </view>
                     <connections>
                         <outlet property="locSwitch" destination="c5M-b3-psX" id="lX6-7k-y9c"/>
-                        <outlet property="textField" destination="LSL-z4-lqD" id="dJE-aA-yqv"/>
+                        <outlet property="textField" destination="LSL-z4-lqD" id="RKJ-sh-Cx9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYg-89-ggZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

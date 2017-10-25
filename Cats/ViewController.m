@@ -13,66 +13,25 @@
 #import "ShowAllCatsViewController.h"
 #import "Cat.h"
 
-@interface ViewController () <UICollectionViewDataSource>
+@interface ViewController () <UICollectionViewDataSource, SearchDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) UICollectionViewFlowLayout *myLayout;
 @property (strong, nonatomic) NSArray <Cat*> *catPhotosArr;
 
+@property (strong, nonatomic) NSString *searchString;
+
+@property (strong, nonatomic) NSString *apiKey;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     
-    //setup URL STUFF
-    NSURL *url = [NSURL URLWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=39019b76a9155a057a3cb897b59c21fb&tags=cat&has_geo=1&extras=url_m&format=json&nojsoncallback=1"];
-    
-    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-    
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    
-    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:configuration];
-    
-    NSURLSessionDataTask *dataTask =  [urlSession dataTaskWithRequest:urlRequest
-                                                completionHandler:^(NSData * _Nullable data,
-                                                                    NSURLResponse * _Nullable response,
-                                                                    NSError * _Nullable error)
-    {
-        if (error)
-        {
-            NSLog(@"Error gathering data");
-        } else
-        {
-            
-            NSError *jsonError = nil;
-            NSDictionary *catDict = [NSJSONSerialization JSONObjectWithData:data
-                                                                    options:0
-                                                                      error:&jsonError];
-            if(jsonError)
-            {
-                NSLog(@"jsonError: %@", jsonError.localizedDescription);
-            }
-            
-            NSMutableArray *temp = [@[] mutableCopy];
-            NSDictionary *cats = catDict[@"photos"];
-            NSArray * catArr = cats[@"photo"];
-            
-            for (NSDictionary *info in catArr){
-                Cat *cat = [[Cat alloc]initWithInfo:info];
-                [temp addObject:cat];
-            }
-            
-            self.catPhotosArr = [temp copy];
-            
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                [self.collectionView reloadData];
-            }];
-        }
-    }];
-    
-    [dataTask resume];
-    //end URL setup
+#warning API Key changes for some reason????
+    self.apiKey = @"56078fa33f4872fefaa96478954f2929";
+//    [self getImage];
     
     
     self.collectionView.dataSource = self;
@@ -87,6 +46,70 @@
     self.collectionView.userInteractionEnabled = YES;
     
 }
+
+#pragma mark - get image
+-(void)getImage
+{
+    //with the search, just change the tag cat with the search word
+    //setup URL STUFF
+    NSString *string = [NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=%@&tags=%@&has_geo=1&extras=url_m&format=json&nojsoncallback=1", self.apiKey, self.searchString];
+
+    NSURL *url = [NSURL URLWithString:string];
+
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+
+    NSURLSession *urlSession = [NSURLSession sessionWithConfiguration:configuration];
+
+    NSURLSessionDataTask *dataTask =  [urlSession dataTaskWithRequest:urlRequest
+            completionHandler:^(NSData * _Nullable data,
+                                NSURLResponse * _Nullable response,
+                                NSError * _Nullable error)
+    {
+    if (error)
+    {
+       NSLog(@"Error gathering data");
+    } else
+    {
+       
+       NSError *jsonError = nil;
+       NSDictionary *catDict = [NSJSONSerialization JSONObjectWithData:data
+                                                               options:0
+                                                                 error:&jsonError];
+       if(jsonError)
+       {
+           NSLog(@"jsonError: %@", jsonError.localizedDescription);
+       }
+       
+       NSMutableArray *temp = [@[] mutableCopy];
+       NSDictionary *cats = catDict[@"photos"];
+       NSArray * catArr = cats[@"photo"];
+       
+       for (NSDictionary *info in catArr){
+           Cat *cat = [[Cat alloc]initWithInfo:info];
+           [temp addObject:cat];
+       }
+       
+       self.catPhotosArr = [temp copy];
+       
+       [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+           [self.collectionView reloadData];
+       }];
+    }
+    }];
+
+    [dataTask resume];
+    //end URL setup
+}
+
+#pragma mark - delegate
+- (void)textDidUpdate:(NSString *)text {
+    self.searchString = text;
+    [self getImage];
+//    [self.collectionView reloadData];
+}
+
 
 #pragma mark - nav
 
@@ -122,6 +145,11 @@
     {
         ShowAllCatsViewController *showallVC = segue.destinationViewController;
         showallVC.allCatsArr = self.catPhotosArr;
+    }
+    else if ([segue.identifier isEqualToString:@"searchSegue"])
+    {
+        SearchViewController *searchVC = segue.destinationViewController;
+        searchVC.delegate = self;
     }
 }
 

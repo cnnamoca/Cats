@@ -9,12 +9,13 @@
 #import "SearchViewController.h"
 #import <MapKit/MapKit.h>
 
-@interface SearchViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *textField;
+@interface SearchViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UISwitch *locSwitch;
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (nonatomic, strong) CLLocationManager *locationManager;
+
+
 
 
 @end
@@ -30,13 +31,22 @@
     self.locationManager.distanceFilter = 10; //have to move 10m before location manager checks again
     self.locationManager.delegate = self;
     //end location manager stuff
+    
+    self.textField.delegate = self;
 }
 
+#pragma mark - delegate
+//- (void)textFieldDidEndEditing:(UITextField *)textField {
+//    NSString * text = textField.text;
+//    [self.delegate textDidUpdate:text];
+//}
 
 #pragma mark - search button
 - (IBAction)saveInfo:(UIButton *)sender
 {
-    
+    NSString * text = self.textField.text;
+    [self.delegate textDidUpdate:text];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - cancel button

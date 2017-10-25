@@ -14,12 +14,16 @@
 @property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) CLLocation *currentLocation;
 
+@property (strong, nonatomic) NSString *apiKey;
+
 @end
 
 @implementation DetailedViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.apiKey = @"56078fa33f4872fefaa96478954f2929";
     
     self.mapView.mapType = MKMapTypeStandard;
     [self.mapView setZoomEnabled:YES];
@@ -29,7 +33,7 @@
     self.mapView.delegate = self;
     
     //setup url stuff
-    NSString *string = [NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=39019b76a9155a057a3cb897b59c21fb&photo_id=%li&format=json&nojsoncallback=1", self.cat.catID];
+    NSString *string = [NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=%@&photo_id=%li&format=json&nojsoncallback=1", self.apiKey, self.cat.catID];
     
     NSURL *url = [NSURL URLWithString:string];
     

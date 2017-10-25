@@ -13,12 +13,16 @@
 //@property (weak, nonatomic) MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
+@property (strong, nonatomic) NSString *apiKey;
+
 @end
 
 @implementation ShowAllCatsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.apiKey = @"56078fa33f4872fefaa96478954f2929";
     // Do any additional setup after loading the view.
     
     self.mapView.mapType = MKMapTypeStandard;
@@ -30,7 +34,7 @@
     
     
     for (int i = 0; i < self.allCatsArr.count; i++){
-    NSString *string = [NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=39019b76a9155a057a3cb897b59c21fb&photo_id=%li&format=json&nojsoncallback=1", self.allCatsArr[i].catID];
+    NSString *string = [NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=%@&photo_id=%li&format=json&nojsoncallback=1", self.apiKey, self.allCatsArr[i].catID];
     
     NSURL *url = [NSURL URLWithString:string];
     
