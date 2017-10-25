@@ -61,7 +61,6 @@
            
            [self.cat setMyCoordinate:CLLocationCoordinate2DMake([geoDict[@"photo"][@"location"][@"latitude"] floatValue], [geoDict[@"photo"][@"location"][@"longitude"] floatValue])];
            MKCoordinateSpan span = MKCoordinateSpanMake(.5f, .5f);
-           self.mapView.region = MKCoordinateRegionMake(self.cat.coordinate, span);
            MKPointAnnotation *catAnn = [MKPointAnnotation new];
            catAnn.coordinate = self.cat.coordinate;
            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -74,32 +73,7 @@
     [dataTask resume];
     //end setup url stuff
     
-    
-    
 }
-
-//-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
-//{
-//    MKPinAnnotationView *pinView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"myId"];
-//    if (!pinView)
-//    {
-//        // If an existing pin view was not available, create one.
-//        pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"myId"];
-//        pinView.canShowCallout = YES;
-//
-//        pinView.pinTintColor = [UIColor redColor];
-//
-//        UIButton* rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-//        pinView.rightCalloutAccessoryView = rightButton;
-//
-//        // Add an image to the left callout.
-//        UIImageView *iconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"lhlLogo.png"]];
-//        pinView.leftCalloutAccessoryView = iconView;
-//
-//
-//    }
-//    return pinView;
-//}
 
 
 @end

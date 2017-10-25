@@ -10,7 +10,7 @@
 #import "myCollectionViewCell.h"
 #import "DetailedViewController.h"
 #import "SearchViewController.h"
-#import "ShowAllViewController.m"
+#import "ShowAllCatsViewController.h"
 #import "Cat.h"
 
 @interface ViewController () <UICollectionViewDataSource>
@@ -120,9 +120,7 @@
     }
     else if ([segue.identifier isEqualToString:@"showAllSegue"])
     {
-//        #warning COME BACK TO FIX
-        
-        ShowAllViewController *showallVC = segue.destinationViewController;
+        ShowAllCatsViewController *showallVC = segue.destinationViewController;
         showallVC.allCatsArr = self.catPhotosArr;
     }
 }
@@ -132,8 +130,8 @@
 {
     self.myLayout = [UICollectionViewFlowLayout new];
     self.myLayout.itemSize = CGSizeMake(200, 200);
-    self.myLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
-    self.myLayout.minimumInteritemSpacing = 15;
+    self.myLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.myLayout.minimumInteritemSpacing = 10;
     self.myLayout.minimumLineSpacing = 10;
 
 }

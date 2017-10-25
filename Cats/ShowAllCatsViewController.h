@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "Cat.h"
 
-@interface ShowAllCatsViewController : UIViewController
+@interface ShowAllCatsViewController : UIViewController <MKMapViewDelegate>
+
+@property (weak, nonatomic) NSArray<Cat *> *allCatsArr;
 
 @end

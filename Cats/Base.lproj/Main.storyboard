@@ -154,10 +154,10 @@
             </objects>
             <point key="canvasLocation" x="1157.5999999999999" y="429.53523238380814"/>
         </scene>
-        <!--View Controller-->
+        <!--Show All Cats View Controller-->
         <scene sceneID="0tE-6G-ith">
             <objects>
-                <viewController id="HPZ-ds-iY7" sceneMemberID="viewController">
+                <viewController id="HPZ-ds-iY7" customClass="ShowAllCatsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AFr-13-nM5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,6 +175,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AlH-36-bhg"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="Jef-af-CAq" id="im0-nv-9Gf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gTI-2s-xsL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
