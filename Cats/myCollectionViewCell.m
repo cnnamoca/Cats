@@ -12,7 +12,7 @@
 
 -(void)makeCat:(Cat *)cat
 {
-    self.label.text = cat.title;
+    self.label.text = cat.imageTitle;
     self.imageView.image = cat.image;
     _cat = cat;
 }

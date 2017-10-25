@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 #import "myCollectionViewCell.h"
+#import "DetailedViewController.h"
+#import "SearchViewController.h"
+#import "ShowAllViewController.m"
 #import "Cat.h"
 
 @interface ViewController () <UICollectionViewDataSource>
@@ -21,9 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     //setup URL STUFF
-    NSURL *url = [NSURL URLWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=7cc6920937f2ae7233eeabd17d5ee58b&tags=cat"];
+    NSURL *url = [NSURL URLWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=39019b76a9155a057a3cb897b59c21fb&tags=cat&has_geo=1&extras=url_m&format=json&nojsoncallback=1"];
     
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -77,6 +80,51 @@
     [self setupMyLayout];
     self.collectionView.collectionViewLayout = self.myLayout;
     
+    //tap gesture set up
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(goToDetails:)];
+    [self.collectionView addGestureRecognizer:tapGesture];
+    
+    self.collectionView.userInteractionEnabled = YES;
+    
+}
+
+#pragma mark - nav
+
+- (IBAction)search:(id)sender
+{
+    [self performSegueWithIdentifier:@"searchSegue" sender:sender];
+}
+
+- (IBAction)showAll:(id)sender
+{
+    [self performSegueWithIdentifier:@"showAllSegue" sender:sender];
+}
+
+
+#pragma mark - tap gesture setup
+-(void) goToDetails: (UITapGestureRecognizer *)sender
+{
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:[sender locationInView:self.collectionView]];
+    [self performSegueWithIdentifier:@"mapSegue" sender:indexPath];
+}
+
+#pragma mark - segue methods
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"mapSegue"])
+    {
+        DetailedViewController *detailedVC = segue.destinationViewController;
+        NSIndexPath *indexPath = sender;
+        detailedVC.cat = self.catPhotosArr[indexPath.row];
+
+    }
+    else if ([segue.identifier isEqualToString:@"showAllSegue"])
+    {
+//        #warning COME BACK TO FIX
+        
+        ShowAllViewController *showallVC = segue.destinationViewController;
+        showallVC.allCatsArr = self.catPhotosArr;
+    }
 }
 
 #pragma mark - collection view layout
@@ -114,7 +162,7 @@
     cat.image = image;
     
     cell.cat = self.catPhotosArr[indexPath.row];
-    cell.label.text = cat.title;
+    cell.label.text = cat.imageTitle;
     cell.imageView.image = cat.image;
     
     return cell;

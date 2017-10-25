@@ -9,6 +9,7 @@
 #import "Cat.h"
 
 @implementation Cat
+@synthesize coordinate = _coordinate;
 
 -(instancetype)initWithInfo:(NSDictionary*)infoDict
 {
@@ -20,10 +21,13 @@
         _secret = infoDict[@"secret"];
         _server = [infoDict[@"server"] integerValue];
         _farm = [infoDict[@"farm"] integerValue];
-        _title = infoDict[@"title"];
+        _imageTitle = infoDict[@"title"];
     }
     return self;
 }
 
-
+- (void)setMyCoordinate:(CLLocationCoordinate2D)myCoordinate{
+    
+    _coordinate = myCoordinate;
+}
 @end

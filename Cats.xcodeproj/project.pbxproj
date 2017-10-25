@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E63B32851F9FF5E400319EC1 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E63B32841F9FF5E400319EC1 /* SearchViewController.m */; };
+		E64C598E1FA018AF003AD860 /* ShowAllCatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E64C598D1FA018AF003AD860 /* ShowAllCatsViewController.m */; };
 		E6D4F8011F9E6CFA00732B8F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D4F8001F9E6CFA00732B8F /* AppDelegate.m */; };
 		E6D4F8041F9E6CFA00732B8F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D4F8031F9E6CFA00732B8F /* ViewController.m */; };
 		E6D4F8071F9E6CFA00732B8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D4F8051F9E6CFA00732B8F /* Main.storyboard */; };
@@ -18,6 +20,7 @@
 		E6D4F8271F9E6CFA00732B8F /* CatsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D4F8261F9E6CFA00732B8F /* CatsUITests.m */; };
 		E6D4F8361F9E6D9D00732B8F /* myCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D4F8351F9E6D9D00732B8F /* myCollectionViewCell.m */; };
 		E6D4F8391F9E830A00732B8F /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D4F8381F9E830A00732B8F /* Cat.m */; };
+		E6D4F8811F9FCD3A00732B8F /* DetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D4F8801F9FCD3A00732B8F /* DetailedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E63B32831F9FF5E400319EC1 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		E63B32841F9FF5E400319EC1 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		E64C598C1FA018AF003AD860 /* ShowAllCatsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowAllCatsViewController.h; sourceTree = "<group>"; };
+		E64C598D1FA018AF003AD860 /* ShowAllCatsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowAllCatsViewController.m; sourceTree = "<group>"; };
 		E6D4F7FC1F9E6CFA00732B8F /* Cats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D4F7FF1F9E6CFA00732B8F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E6D4F8001F9E6CFA00732B8F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -59,6 +66,8 @@
 		E6D4F8351F9E6D9D00732B8F /* myCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myCollectionViewCell.m; sourceTree = "<group>"; };
 		E6D4F8371F9E830A00732B8F /* Cat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Cat.h; sourceTree = "<group>"; };
 		E6D4F8381F9E830A00732B8F /* Cat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cat.m; sourceTree = "<group>"; };
+		E6D4F87F1F9FCD3A00732B8F /* DetailedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailedViewController.h; sourceTree = "<group>"; };
+		E6D4F8801F9FCD3A00732B8F /* DetailedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +125,14 @@
 				E6D4F8371F9E830A00732B8F /* Cat.h */,
 				E6D4F8381F9E830A00732B8F /* Cat.m */,
 				E6D4F8051F9E6CFA00732B8F /* Main.storyboard */,
+				E63B32831F9FF5E400319EC1 /* SearchViewController.h */,
+				E63B32841F9FF5E400319EC1 /* SearchViewController.m */,
+				E6D4F87F1F9FCD3A00732B8F /* DetailedViewController.h */,
+				E6D4F8801F9FCD3A00732B8F /* DetailedViewController.m */,
 				E6D4F8341F9E6D9D00732B8F /* myCollectionViewCell.h */,
 				E6D4F8351F9E6D9D00732B8F /* myCollectionViewCell.m */,
+				E64C598C1FA018AF003AD860 /* ShowAllCatsViewController.h */,
+				E64C598D1FA018AF003AD860 /* ShowAllCatsViewController.m */,
 				E6D4F80B1F9E6CFA00732B8F /* Assets.xcassets */,
 				E6D4F80D1F9E6CFA00732B8F /* LaunchScreen.storyboard */,
 				E6D4F8101F9E6CFA00732B8F /* Info.plist */,
@@ -280,9 +295,12 @@
 			files = (
 				E6D4F8391F9E830A00732B8F /* Cat.m in Sources */,
 				E6D4F8041F9E6CFA00732B8F /* ViewController.m in Sources */,
+				E6D4F8811F9FCD3A00732B8F /* DetailedViewController.m in Sources */,
+				E64C598E1FA018AF003AD860 /* ShowAllCatsViewController.m in Sources */,
 				E6D4F80A1F9E6CFA00732B8F /* Cats.xcdatamodeld in Sources */,
 				E6D4F8121F9E6CFA00732B8F /* main.m in Sources */,
 				E6D4F8361F9E6D9D00732B8F /* myCollectionViewCell.m in Sources */,
+				E63B32851F9FF5E400319EC1 /* SearchViewController.m in Sources */,
 				E6D4F8011F9E6CFA00732B8F /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,7 +392,6 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -428,7 +445,6 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
