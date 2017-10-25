@@ -28,7 +28,7 @@
     self.locationManager = [CLLocationManager new];
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     self.locationManager.distanceFilter = 10; //have to move 10m before location manager checks again
-//    self.locationManager.delegate = self;
+    self.locationManager.delegate = self;
     //end location manager stuff
 }
 

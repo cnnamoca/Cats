@@ -61,11 +61,11 @@
                }
                
                [self.allCatsArr[i] setMyCoordinate:CLLocationCoordinate2DMake([geoDict[@"photo"][@"location"][@"latitude"] floatValue], [geoDict[@"photo"][@"location"][@"longitude"] floatValue])];
-               MKCoordinateSpan span = MKCoordinateSpanMake(.5f, .5f);
+//               MKCoordinateSpan span = MKCoordinateSpanMake(.5f, .5f);
                MKPointAnnotation *catAnn = [MKPointAnnotation new];
                catAnn.coordinate = self.allCatsArr[i].coordinate;
                [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                   self.mapView.region = MKCoordinateRegionMake(self.allCatsArr[i].coordinate, span);
+                   self.mapView.region = MKCoordinateRegionMake(self.mapView.centerCoordinate, MKCoordinateSpanMake(180, 360));
                    [self.mapView addAnnotation:self.allCatsArr[i]];
                }];
            }
