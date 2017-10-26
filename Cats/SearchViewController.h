@@ -11,6 +11,7 @@
 
 @protocol SearchDelegate <NSObject>
 - (void)textDidUpdate:(NSString *)text;
+- (void)returnLocationBasedPhotos: (NSArray *) photosArr;
 
 @end
 
@@ -18,5 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic, weak) id <SearchDelegate> delegate;
+
+@property (nonatomic) BOOL locationBool;
+
 
 @end

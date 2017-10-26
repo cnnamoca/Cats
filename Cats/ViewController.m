@@ -45,6 +45,9 @@
     
     self.collectionView.userInteractionEnabled = YES;
     
+//    [self performSegueWithIdentifier:@"searchSegue" sender:nil];
+
+    
 }
 
 #pragma mark - get image
@@ -103,11 +106,19 @@
     //end URL setup
 }
 
+
+
 #pragma mark - delegate
-- (void)textDidUpdate:(NSString *)text {
+- (void)textDidUpdate:(NSString *)text
+{
     self.searchString = text;
     [self getImage];
-//    [self.collectionView reloadData];
+}
+
+-(void)returnLocationBasedPhotos: (NSArray *) photosArr
+{
+    self.catPhotosArr = photosArr;
+    [self.collectionView reloadData];
 }
 
 
